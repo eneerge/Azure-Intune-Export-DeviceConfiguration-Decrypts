@@ -189,7 +189,7 @@ Write-Verbose "Resource: $DCP_resource"
         Test-JSON -JSON $JSON
 
         $uri = "https://graph.microsoft.com/$graphApiVersion/$($DCP_resource)"
-        Invoke-RestMethod -Uri $uri -Headers $authToken -Method Post -Body $JSON -ContentType "application/json"
+        Invoke-RestMethod -Uri $uri -Headers $authToken -Method Post -Body $JSON -ContentType "application/json; charset=utf-8"
 
         }
 
@@ -311,12 +311,7 @@ $global:authToken = Get-AuthToken -User $User
 
 ####################################################
 
-$FileName = Read-Host -Prompt "Please specify a path to a JSON file to import data from e.g. C:\IntuneOutput\Policies\policy.json"
-If (Test-Path -Path $FileName -Type Leaf) {
-	$ImportPath = $FileName
-} Else {
-	$ImportPath = Read-Host -Prompt "Please specify a path to a JSON file to import data from e.g. C:\IntuneOutput\Policies\policy.json"
-}
+$ImportPath = Read-Host -Prompt "Please specify a path to a JSON file to import data from e.g. C:\IntuneOutput\Policies\policy.json"
 
 # Replacing quotes for Test-Path
 $ImportPath = $ImportPath.replace('"','')
