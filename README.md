@@ -1,6 +1,6 @@
 # Azure-Intune-Export-DeviceConfiguration-Decrypts
 
-This exports Device Configuration Policies in Intune.
+This exports Device Configuration Policies in Intune. It decrypts encrypted policies and it also allows importing and exporting unicode values.
 
 I have manipulated code from these repositories:
 - https://github.com/DeployWindowsCom/DeployWindows-Scripts/blob/master/Intune/Graph%20samples/DeviceConfiguration/DeviceConfiguration_Get.ps1
